@@ -17,7 +17,7 @@ void mainscr(){
 	mn:
 	system("cls");
 	system("COLOR 02"); //hacker style, why freakin not?
-	printf("Passman v1.0\n");
+	printf("Ninik Password Manager v1.0\n");
 	printf("\n1. Make a new entry\n2. Browse previous entries");
 	printf("\n3: Delete enteries\n4: Exit\t");
 	scanf("%d", &ch);
