@@ -8,6 +8,10 @@
   <h2 align="center">Ninik is a CLI based password manager</h2>
 </p>
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/interface.PNG" alt="Screenshot">
+</p>
+  
 ## Technologies used
 * C Language
 * Batch scripting language
