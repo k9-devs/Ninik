@@ -2,3 +2,4 @@
 - Goto: https://www.geeksforgeeks.org/goto-statement-in-c-cpp/
 - Delay in batch-file: https://stackoverflow.com/questions/1672338/how-to-sleep-for-5-seconds-in-a-batch-file-cmd
 - Read files stored in another directory: https://stackoverflow.com/questions/27844122/open-txt-file-present-in-some-other-directory-in-c //stackoverflow is a life saver
+- https://www.wikihow.com/Use-Drop-Shadow-in-GIMP
