@@ -14,5 +14,3 @@
 
 ## How To Contribute
 Open a pull request. For any discussion or query, open an issue.
-
-<h4 align="center"> This document was last updated on 20 April, 2019 <h4>
