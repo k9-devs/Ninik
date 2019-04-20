@@ -1,0 +1,3 @@
+- Batch scripting + C programming // Hou bou dat?
+- Algorithm to change the text to encrypted form. Maybe use soemthing like md5 hashing.
+- Iexpress package

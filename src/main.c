@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+//#include <fstream> Didn't know it wouldn't work
+
+void mainscr();
+void newentry();
+void browse_previous();
+void delete_en();
+void validator();
+int main(){
+	mainscr();
+}
+void mainscr(){
+	char ch;
+	char str_batch_commands[50];
+	mn:
+	system("cls");
+	system("COLOR 02"); //hacker style, why freakin not?
+	printf("Passman v1.0\n");
+	printf("\n1. Make a new entry\n2. Browse previous entries");
+	printf("\n3: Delete enteries\n4: Exit\t");
+	scanf("%d", &ch);
+	switch(ch){
+		case 1: newentry();
+				break;
+		case 2: browse_previous();
+				break;
+		case 3: delete_en();
+				break;
+		case 4: printf("Good to see ya bud, exiting in 2 seconds...");
+				strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul"); //this hack is amazing
+				//hello localfreakinhost btw
+				system(str_batch_commands);
+				exit(0);
+				//strcpy(str_batch_commands, "pause >nul");
+				//system(str_batch_commands);
+		default: printf("\a\nInvalid choice! Returning to main menu in 2 seconds..");
+				 strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
+				 system(str_batch_commands);
+				 goto mn;
+	}
+	//main interface is pretty much done
+	//choices will be added and new functions will be called accordingly
+}
+void newentry(){
+	//system("COLOR 02");
+
+}
+void browse_previous(){
+	//system("COLOR 02");
+	//basic file handling test using one character read each time
+	/*
+	FILE *fp;
+	char ch;
+	fp=fopen("../sample_files/passwords.txt", "r"); //.. to go one directory above, cool
+	while(1){
+		ch=fgetc(fp);
+		if(ch==EOF)
+			break;
+		printf("%c", ch);
+	}
+	printf("\n");
+	fclose(fp);
+	//working as expected, i am very happy now
+	*/
+	//logic is to be implemented to read word by word
+	//logic to fetch a word
+	/*
+	next to do , figuring out logic to fetch a word
+	FILE *fp;
+	char ch;
+	char word[30];
+	fp=fopen("../sample_files/pass_new.txt", "r");
+	while(feof(fp)!=0){
+		fscanf(fp, "%s", word);
+		printf("%s", word);
+	}
+	*/
+}
+void delete_en(){
+	system("COLOR 04");
+}

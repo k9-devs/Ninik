@@ -1,0 +1,9 @@
+Functions:
+
+- void mainscr()
+- void newentry()
+- void browse_previous()
+- void delete_en()
+- void validator()
+
+Data members:
