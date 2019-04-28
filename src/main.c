@@ -21,7 +21,7 @@ void mainscr(){
 		system("COLOR 02"); //hacker style, why freakin not?
 		printf("Passman v1.0\n");
 		printf("\n1. Make a new entry\n2. Browse previous entries");
-		printf("\n3: Delete enteries\n4: Exit\t");
+		printf("\n3: Delete entry\n4: Exit\t");
 		scanf("%d", &ch);
 	
 		switch(ch){
@@ -65,7 +65,7 @@ void newentry(){
 	system("cls");
 	printf("\n%s %s", title, pass);
 	fflush(stdin);
-	printf("\nPress y/Y to confirm entry add, n/N to cancel\t");
+	printf("\nPress y/Y to confirm entry addition, n/N to cancel\t");
 	scanf("%c", &confirm);
 	if(confirm=='n'||confirm=='N'){
 		goto start_ag;
