@@ -12,6 +12,10 @@ int main(){
 	mainscr();
 }
 void mainscr(){
+	system("title Ninik Password Manager v1.0");
+	system("start /max");
+	//probably one of the most precious thing I discoevered today that
+	//made me actually happy
 	char ch;
 	char str_batch_commands[50];
 	char cont;
@@ -71,7 +75,7 @@ void newentry(){
 		goto start_ag;
 	}
 	//confirmation here, is this okay? if not jump to a label
-	//time to write these data to a file
+	//if yes, time to write this data to a file
 	fp=fopen("pass.txt", "a"); //append mode
 	//fseek(fp, 0, SEEK_END); //maybe that's just for reading
 	fprintf(fp, "%s\t%s\n", title, pass);
@@ -130,11 +134,34 @@ void browse_previous(){
 	}
 	if(unsucflg==0){
 		printf("Entry not found! Returning to the main menu in 2 seconds...");
-		
+		//strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
+		system("ping 127.0.0.1 -n 3 > nul");
 	}
 	fclose(fp);
 	//fseek(fp, 0, SEEK_SET)
 }
 void delete_en(){
+	//logic: copy all lines, except one, to a new file and then renaming the file4
+	char title2[40];
+	char title[40], pass[40];
 	system("COLOR 04");
+	FILE *fp1, *fp2;
+	fp1=fopen("pass.txt", "r");
+	fp2=fopen("passtemp.txt", "w");
+	system("cls");
+	printf("\aWarning! These changes are irreversible, proceed with caution!\n");
+	printf("Enter the title");
+	scanf("%s", &title2);
+	while(fscanf(fp1, "%s\t%s", title, pass)!=EOF){
+    	if(strcmp(title, title2)!=0){
+			fprintf(fp2, "%s\t%s\n", title, pass);
+		}
+	}
+	fclose(fp1);
+	fclose(fp2);
+	remove("pass.txt");
+	//might show error if the above and below lines are switched, not testsed yet
+	rename("passtemp.txt", "pass.txt");
+	printf("Entry deletion successful! Returning to the main menu in 2 seconds...");
+	system("ping 127.0.0.1 -n 3 > nul");
 }

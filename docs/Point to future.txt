@@ -3,3 +3,8 @@
 - Iexpress package
 - .txt to .dat database
 - Password generation
+- Everything to be stored in a directory under C drive
+- Create backups so that even after deletion, the files can be retrieved. Use different encryption algos for backups.
+- check in every case if pass.txt is opened successfully everytime or not.
+- changing fonts type and size
+- changing exe icon

@@ -9,3 +9,24 @@
 
 - https://fresh2refresh.com/c-programming/c-file-handling/fseek-seek_set-seek_cur-seek_end-functions-c/
 
+-https://www.techonthenet.com/c_language/standard_library_functions/stdio_h/rewind.php
+
+- Delete a file using C language https://www.programmingsimplified.com/c-program-delete-file
+
+- There's a rename function in C 
+
+- Reference to deleting a line : https://www.sanfoundry.com/c-program-delete-line-text-file/
+
+- strcmp() : https://www.techonthenet.com/c_language/standard_library_functions/string_h/strcmp.php
+
+- Very cool: https://stackoverflow.com/questions/44291574/function-remove-in-c-does-not-delete-the-selected-file
+
+- Changing cmd windows title: https://en.wikipedia.org/wiki/Title_(command)
+
+- Cmd commands to change its properties: https://stackoverflow.com/questions/945527/modify-cmd-exe-properties-using-the-command-prompt
+
+-change buffer size: https://stackoverflow.com/questions/13311924/cmd-set-buffer-height-independently-of-window-height
+
+-maximise and minimise the screen: https://stackoverflow.com/questions/8688846/resize-command-prompt-through-commands
+
+-Interesting read on presenting the output through a .rtf wordpad file.
