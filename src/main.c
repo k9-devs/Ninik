@@ -1,31 +1,39 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-//#include <fstream> Didn't know it wouldn't work
+//#include <fstream>
 
 void mainscr();
 void newentry();
 void browse_previous();
 void delete_en();
 void validator();
+void change_entry_pass();
+void entry_pass_find(); //normal writing is not providing the compatible format
+void write_pass_to_file();
+char entrypass[40];
+//entrypass is retrieved from a file
+//strcpy(entrypass, "Ninik");
 int main(){
-	mainscr();
+	//system("@echo off");
+    //system("start /max");
+	//write_pass_to_file();
+    entry_pass_find();
+	validator();
 }
 void mainscr(){
-	system("title Ninik Password Manager v1.0");
-	system("start /max");
-	//probably one of the most precious thing I discoevered today that
-	//made me actually happy
 	char ch;
 	char str_batch_commands[50];
 	char cont;
+	system("title Ninik Password Manager v1.0");
 	do{
 		mn:
 		system("cls");
-		system("COLOR 02"); //hacker style, why freakin not?
-		printf("Passman v1.0\n");
+		system("COLOR 02");
+		printf("Ninik Password Manager v1.0\n");
 		printf("\n1. Make a new entry\n2. Browse previous entries");
-		printf("\n3: Delete entry\n4: Exit\t");
+		printf("\n3: Delete entry\n4: Change entry pass\n");
+		printf("5: Exit\n\n> ");
 		scanf("%d", &ch);
 	
 		switch(ch){
@@ -35,7 +43,9 @@ void mainscr(){
 					break;
 			case 3: delete_en();
 					break;
-			case 4: printf("Good to see ya bud, exiting in 2 seconds...");
+			case 4: change_entry_pass();
+					break;
+			case 5: printf("Good to see ya bud, exiting in 2 seconds...");
 					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul"); //holy cow, this hack is amazing
 					//hello localfreakinhost btw
 					system(str_batch_commands);
@@ -165,3 +175,50 @@ void delete_en(){
 	printf("Entry deletion successful! Returning to the main menu in 2 seconds...");
 	system("ping 127.0.0.1 -n 3 > nul");
 }
+void validator(){
+	char userpass[40];
+	//validator code
+	loop:
+	system("cls");
+	printf("Entry password: ");
+	scanf("%s", &userpass);
+	if(strcmp(userpass, entrypass)!=0){
+		printf("Wrong password! Returning to the first screen in 2 seconds...\n");
+		system("ping 127.0.0.1 -n 3 > nul");
+		goto loop;
+	}
+	else{
+		mainscr();
+	}
+}
+void change_entry_pass(){
+	system("cls");
+	FILE *fp;
+	fp=fopen("en_pass.txt", "w");
+	char new_pass[40];
+	printf("Enter new entry pass(no spaces):");
+	scanf("%s", &new_pass);
+	fseek(fp, 0, SEEK_SET);
+	fprintf(fp, "%s", new_pass);
+	//not keeping the record of old passwords, replacing stuff
+	fclose(fp);
+}
+
+void entry_pass_find(){
+	FILE *fp;
+	char pass[40];
+	fp=fopen("en_pass.txt", "r");
+	fscanf(fp, "%s\n", pass);
+	strcpy(entrypass, pass);
+	fclose(fp);
+}
+void write_pass_to_file(){
+	FILE *fp;
+	char temp[40]="Ninik";
+	fp=fopen("en_pass.txt", "w");
+	fprintf(fp, "%s\n", temp);
+	printf("\nChanging password success! Returning in 2 seconds...");
+	system("ping 127.0.0.1 -n 3 >nul");
+	fclose(fp);
+}
+

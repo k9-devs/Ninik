@@ -30,3 +30,6 @@
 -maximise and minimise the screen: https://stackoverflow.com/questions/8688846/resize-command-prompt-through-commands
 
 -Interesting read on presenting the output through a .rtf wordpad file.
+
+-Strcpy : https://www.techonthenet.com/c_language/standard_library_functions/string_h/strcpy.php
+
