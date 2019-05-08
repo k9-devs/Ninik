@@ -1,7 +1,12 @@
+/*
+A simple password manager written in C language. This project was started during #100DaysOfCode
+and #301DaysOfCode challenge by BSi ( twitter.com/mbhups, github.com/mbhup)
+*/
+
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-//#include <fstream>
+
 
 void mainscr();
 void newentry();
@@ -11,9 +16,12 @@ void validator();
 void change_entry_pass();
 void entry_pass_find(); //normal writing is not providing the compatible format
 void write_pass_to_file();
+void encryption_algo();
+void decryption_algo();
 char entrypass[40];
+char pass[20]; //this will be global until the issue of returning array is resolved
 //entrypass is retrieved from a file
-//strcpy(entrypass, "Ninik");
+
 int main(){
 	//system("@echo off");
     //system("start /max");
@@ -68,7 +76,6 @@ void newentry(){
 	//system("COLOR 02");
 	FILE *fp;
 	char title[20];
-	char pass[20];
 	char confirm;
 	start_ag:
 	system("cls");
@@ -87,7 +94,7 @@ void newentry(){
 	//confirmation here, is this okay? if not jump to a label
 	//if yes, time to write this data to a file
 	fp=fopen("pass.txt", "a"); //append mode
-	//fseek(fp, 0, SEEK_END); //maybe that's just for reading
+	encryption_algo();
 	fprintf(fp, "%s\t%s\n", title, pass);
 	printf("Done writing!");
 	fclose(fp);
@@ -126,7 +133,6 @@ void browse_previous(){
 	int unsucflg=0;
 	char usr_ip[20];
 	char title[20];
-	char pass[20];
 	system("cls");
 	printf("Enter the title:\n");
 	scanf("%s", &usr_ip);
@@ -135,12 +141,12 @@ void browse_previous(){
 	while(fscanf(fp, "%s\t%s", title, pass)!=EOF){
 		if(strcmp(title, usr_ip)==0){
 			unsucflg=1;
+			decryption_algo();
 			printf("Pass entry for %s is: %s\n", title, pass);
 		}
 		//else{
 		//	printf("unsuccessful\n");
 		//}
-		
 	}
 	if(unsucflg==0){
 		printf("Entry not found! Returning to the main menu in 2 seconds...");
@@ -222,3 +228,23 @@ void write_pass_to_file(){
 	fclose(fp);
 }
 
+void encryption_algo(){
+	/*
+	This algo is customisable, after implementation of this algo on the pass,
+	a new text string is generated, more like a hash string
+	which can only be decrypted by this algo
+	(if I understand the correct meaning of encryption and decryption)
+	*/
+	int l, i;
+	l=strlen(pass);
+	for(i=0; i<l; i++){
+		pass[i]=pass[i]+1;
+	}
+}
+void decryption_algo(){
+	int l, i;
+	l=strlen(pass);
+	for(i=0; i<l; i++){
+		pass[i]=pass[i]-1;
+	}
+}

@@ -8,3 +8,5 @@
 - check in every case if pass.txt is opened successfully everytime or not.
 - changing fonts type and size
 - changing exe icon
+- update readme about no warranty
+- add readme about custom encryption algo
