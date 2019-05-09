@@ -11,3 +11,4 @@
 - update readme about no warranty
 - add readme about custom encryption algo
 - random password generate
+- add virustotal confirmation of the .exe file
