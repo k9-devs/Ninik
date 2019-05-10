@@ -18,6 +18,7 @@ void entry_pass_find(); //normal writing is not providing the compatible format
 void write_pass_to_file();
 void encryption_algo();
 void decryption_algo();
+void randomPassGenerate();
 char entrypass[40];
 char pass[20]; //this will be global until the issue of returning array is resolved
 //entrypass is retrieved from a file
@@ -247,4 +248,15 @@ void decryption_algo(){
 	for(i=0; i<l; i++){
 		pass[i]=pass[i]-1;
 	}
+}
+
+void randomPassGenerate(){
+	system("cls");
+	//total characters: 12
+	char str0[5], str1[1], str2[3], str3[3];
+	//str0 for alphabetic character
+	//str1	for special character
+	//str2 for digits
+	//str3 for alphabets again
+	
 }
