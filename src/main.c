@@ -42,6 +42,7 @@ void mainscr(){
 		printf("Ninik Password Manager v1.0\n");
 		printf("\n1. Make a new entry\n2. Browse previous entries");
 		printf("\n3: Delete entry\n4: Change entry pass\n");
+		printf("\n5: Help\n6: Contribute\n");
 		printf("5: Exit\n\n> ");
 		scanf("%d", &ch);
 	
@@ -54,7 +55,11 @@ void mainscr(){
 					break;
 			case 4: change_entry_pass();
 					break;
-			case 5: printf("Good to see ya bud, exiting in 2 seconds...");
+			case 5: system("explorer https://github.com/k9-devs/Ninik");
+					break;
+			case 6: system("explorer https://github.com/k9-devs/Ninik");
+					break;
+			case 7: printf("Good to see ya bud, exiting in 2 seconds...");
 					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul"); //holy cow, this hack is amazing
 					//hello localfreakinhost btw
 					system(str_batch_commands);

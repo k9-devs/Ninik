@@ -13,3 +13,4 @@
 - random password generate
 - add virustotal confirmation of the .exe file
 - completion of random pass generation -> v1.0 -> post on Red
+- Add help option to the main menu.
