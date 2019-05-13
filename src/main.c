@@ -88,9 +88,11 @@ void newentry(){
 	char ch;
 	start_ag:
 	system("cls");
+	fflush(stdin);
 	printf("Enter a title for the pass (no spaces):\n");
 	scanf("%s", &title);
-	printf("Select one:\n1: Insert password\n2: Generate a new");
+	fflush(stdin);
+	printf("\nFor password, select one:\n1: Insert password\n2: Generate a new");
 	scanf("%d", &ch);
 	if(ch==1){
 		printf("Enter the password:\n");
@@ -100,9 +102,8 @@ void newentry(){
 		randomPassGenerate();
 	}
 	system("cls");
-	fflush(stdin);
-	printf("\n\nTitle: %s\tPass:%s", title, pass);
-	fflush(stdin);
+	//puts(title);
+	//printf("\n\nTitle: %s\tPass:%s", title, pass);
 	printf("\nPress y/Y to confirm entry addition, n/N to cancel\t");
 	scanf("%c", &confirm);
 	if(confirm=='n'||confirm=='N'){
