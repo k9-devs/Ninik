@@ -1,13 +1,15 @@
 /*
-A simple password manager written in C language. This project was started during #100DaysOfCode
-and #301DaysOfCode challenge by BSi ( twitter.com/mbhups, github.com/mbhup)
+A simple password manager written in C language, a project for #100DaysOfCode
+and #301DaysOfCode challenge 
+
+twitter.com/mbhups, github.com/mbhup
 */
 
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-
-
+#include <stdlib.h>
+#include <time.h>
 void mainscr();
 void newentry();
 void browse_previous();
@@ -26,7 +28,7 @@ char pass[20]; //this will be global until the issue of returning array is resol
 int main(){
 	//system("@echo off");
     //system("start /max");
-	//write_pass_to_file();
+	write_pass_to_file();
     entry_pass_find();
 	validator();
 }
@@ -83,14 +85,23 @@ void newentry(){
 	FILE *fp;
 	char title[20];
 	char confirm;
+	char ch;
 	start_ag:
 	system("cls");
 	printf("Enter a title for the pass (no spaces):\n");
 	scanf("%s", &title);
-	printf("Enter the password:\n");
-	scanf("%s", &pass);
+	printf("Select one:\n1: Insert password\n2: Generate a new");
+	scanf("%d", &ch);
+	if(ch==1){
+		printf("Enter the password:\n");
+		scanf("%s", &pass);
+	}
+	else{
+		randomPassGenerate();
+	}
 	system("cls");
-	printf("\n%s %s", title, pass);
+	fflush(stdin);
+	printf("\n\nTitle: %s\tPass:%s", title, pass);
 	fflush(stdin);
 	printf("\nPress y/Y to confirm entry addition, n/N to cancel\t");
 	scanf("%c", &confirm);
@@ -256,12 +267,48 @@ void decryption_algo(){
 }
 
 void randomPassGenerate(){
-	system("cls");
 	//total characters: 12
-	char str0[5], str1[1], str2[3], str3[3];
+	char str0[5], str1[3], str2[3], str3[3];
+	int i, j;
+	char ch;
 	//str0 for alphabetic character
 	//str1	for special character
 	//str2 for digits
-	//str3 for alphabets again
-	
+	//str3 for capital alphabets
+	char alphabets[50]={'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+	char capsal[50]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	char digits[40]={'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'};
+	//char digitsch[3];
+	char specialchar[40]={'!', '@', '#', '$', '%', '^', '?', '_'};
+	char finalGeneratedPass[50];
+	newpass:
+	system("cls");
+	srand(time(0));
+	//maybe seed for rand is set only once, that's why not setting the seed
+	//again on again use
+	for(i=0; i<5; i++){
+		str0[i]= alphabets[rand() % 26];
+	}
+	for(i=0; i<3; i++){
+		str3[i]= capsal[rand() % 10];
+	}
+	for(i=0; i<3; i++){
+		str2[i]= digits[rand() % 15];
+		//printf("%d\t", str2[i]);
+	}
+	for(i=0; i<3; i++){
+		str1[i]= specialchar[rand() % 8];
+	}
+	strcpy(finalGeneratedPass, str0);
+	strcat(finalGeneratedPass, str1);
+	strcat(finalGeneratedPass, str2);
+	strcat(finalGeneratedPass, str3);
+	puts(finalGeneratedPass);
+	printf("\nCopy this password? (y/Y)...\t");
+	scanf("%c", &ch);
+	if(ch=='y'||ch=='Y'){
+		strcpy(pass, finalGeneratedPass);
+	}
+	else
+		goto newpass;
 }
