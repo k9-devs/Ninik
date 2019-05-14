@@ -38,3 +38,5 @@
 https://docs.oracle.com/cd/E11223_01/doc.910/e11197/app_special_char.htm
 
 https://stackoverflow.com/questions/6436257/how-do-you-copy-paste-from-the-clipboard-in-c
+
+https://superuser.com/questions/429230/how-did-i-change-color-scheme-of-command-prompt
