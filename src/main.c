@@ -62,8 +62,7 @@ void mainscr(){
 			case 6: system("explorer https://github.com/k9-devs/Ninik");
 					break;
 			case 7: printf("Good to see ya bud, exiting in 2 seconds...");
-					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul"); //holy cow, this hack is amazing
-					//hello localfreakinhost btw
+					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
 					system(str_batch_commands);
 					exit(0);
 					//strcpy(str_batch_commands, "pause >nul");
@@ -83,27 +82,29 @@ void mainscr(){
 void newentry(){
 	//system("COLOR 02");
 	FILE *fp;
-	char title[20];
+	char title2[20];
 	char confirm;
 	char ch;
 	start_ag:
 	system("cls");
 	fflush(stdin);
 	printf("Enter a title for the pass (no spaces):\n");
-	scanf("%s", &title);
+	gets(title2);
 	fflush(stdin);
-	printf("\nFor password, select one:\n1: Insert password\n2: Generate a new");
+	printf("\nFor password, select one:\n1: Insert password\n2: Generate a new\n\n>");
 	scanf("%d", &ch);
-	if(ch==1){
+	//if(ch==1){
 		printf("Enter the password:\n");
 		scanf("%s", &pass);
-	}
-	else{
-		randomPassGenerate();
-	}
+	//	fflush(stdin);
+	//}
+	//else{
+	//	randomPassGenerate();
+	//}
 	system("cls");
 	//puts(title);
-	//printf("\n\nTitle: %s\tPass:%s", title, pass);
+	fflush(stdin);
+	printf("\n\nTitle: %s\tPass:%s", title2, pass);
 	printf("\nPress y/Y to confirm entry addition, n/N to cancel\t");
 	scanf("%c", &confirm);
 	if(confirm=='n'||confirm=='N'){
@@ -113,8 +114,8 @@ void newentry(){
 	//if yes, time to write this data to a file
 	fp=fopen("pass.txt", "a"); //append mode
 	encryption_algo();
-	fprintf(fp, "%s\t%s\n", title, pass);
-	printf("Done writing!");
+	fprintf(fp, "%s\t%s\n", title2, pass);
+	printf("\nDone writing!");
 	fclose(fp);
 }
 void browse_previous(){
@@ -312,4 +313,5 @@ void randomPassGenerate(){
 	}
 	else
 		goto newpass;
+	fflush(stdin);
 }
