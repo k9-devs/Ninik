@@ -1,6 +1,6 @@
 /*
 A simple password manager written in C language, a project under #100DaysOfCode
-and #301DaysOfCode challenge 
+and #301DaysOfCode challenge
 
 twitter.com/mbhups, github.com/mbhup
 */
@@ -10,7 +10,6 @@ twitter.com/mbhups, github.com/mbhup
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-
 void mainscr();
 void newentry();
 void browse_previous();
@@ -30,8 +29,9 @@ int main(){
 	//system("@echo off");
     //system("start /max");
 	//write_pass_to_file();
-    entry_pass_find();
-	validator();
+    //entry_pass_find();
+	//validator();
+	newentry();
 }
 void mainscr(){
 	char ch;
@@ -46,10 +46,10 @@ void mainscr(){
 		printf("Ninik Password Manager v1.0\n");
 		printf("\n1. Make a new entry\n2. Browse previous entries");
 		printf("\n3: Delete entry\n4: Change entry pass\n");
-		printf("5: Help\n6: Contribute\n");
+		printf("\n5: Help\n6: Contribute\n");
 		printf("5: Exit\n\n> ");
 		scanf("%d", &ch);
-	
+
 		switch(ch){
 			case 1: newentry();
 					break;
@@ -86,28 +86,29 @@ void newentry(){
 	FILE *fp;
 	char title[20];
 	char confirm;
-	int ch;
+	char ch;
 	start_ag:
 	system("cls");
 	fflush(stdin);
 	printf("Enter a title for the pass (no spaces):\n");
 	scanf("%s", &title);
-	//printf("%s", title);
+	printf("%s", title);
+	/*
 	fflush(stdin);
 	printf("\nFor password, select one:\n1: Insert password\n2: Generate a new\n\n>");
 	scanf("%d", &ch);
-	if(ch==1){
+	//if(ch==1){
 		printf("Enter the password:\n");
 		scanf("%s", &pass);
-		fflush(stdin);
-	}
-	else{
-		randomPassGenerate();
-	}
+	//	fflush(stdin);
+	//}
+	//else{
+	//	randomPassGenerate();
+	//}
 	system("cls");
 	//puts(title);
 	fflush(stdin);
-	printf("\n\nTitle: %s\tPass:%s", title, pass);
+	printf("\n\nTitle: %s\tPass:%s", title2, pass);
 	printf("\nPress y/Y to confirm entry addition, n/N to cancel\t");
 	scanf("%c", &confirm);
 	if(confirm=='n'||confirm=='N'){
@@ -117,9 +118,10 @@ void newentry(){
 	//if yes, time to write this data to a file
 	fp=fopen("pass.txt", "a"); //append mode
 	encryption_algo();
-	fprintf(fp, "%s\t%s\n", title, pass);
+	fprintf(fp, "%s\t%s\n", title2, pass);
 	printf("\nDone writing!");
 	fclose(fp);
+	*/
 }
 void browse_previous(){
 	//system("COLOR 02");

@@ -15,3 +15,4 @@
 - completion of random pass generation -> v1.0 -> post on Red
 - Add help option to the main menu.
 - Add a tutorial video
+- Add 'How to build the exe' to the readme
