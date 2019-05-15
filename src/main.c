@@ -22,14 +22,17 @@ void write_pass_to_file();
 void encryption_algo();
 void decryption_algo();
 void randomPassGenerate();
+void encryptMasterPass();
+void decryptMasterPass();
 char entrypass[40];
 char pass[20]; //this will be global until the issue of returning array is resolved
 //entrypass is retrieved from a file
+char userpass[40];
 
 int main(){
 	//system("@echo off");
     //system("start /max");
-	//write_pass_to_file();
+	write_pass_to_file();
     entry_pass_find();
 	validator();
 }
@@ -59,9 +62,11 @@ void mainscr(){
 					break;
 			case 4: change_entry_pass();
 					break;
-			case 5: system("explorer https://github.com/k9-devs/Ninik");
+			case 5: system("cls");
+					system("explorer https://github.com/k9-devs/Ninik");
 					break;
-			case 6: system("explorer https://github.com/k9-devs/Ninik");
+			case 6: system("cls");
+					system("explorer https://github.com/k9-devs/Ninik");
 					break;
 			case 7: printf("Good to see ya bud, exiting in 2 seconds...");
 					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
@@ -204,12 +209,12 @@ void delete_en(){
 	system("ping 127.0.0.1 -n 3 > nul");
 }
 void validator(){
-	char userpass[40];
 	//validator code
 	loop:
 	system("cls");
 	printf("Entry password: ");
 	scanf("%s", &userpass);
+	decryptMasterPass();
 	if(strcmp(userpass, entrypass)!=0){
 		printf("Wrong password! Returning to the first screen in 2 seconds...\n");
 		system("ping 127.0.0.1 -n 3 > nul");
@@ -223,11 +228,12 @@ void change_entry_pass(){
 	system("cls");
 	FILE *fp;
 	fp=fopen("en_pass.txt", "w");
-	char new_pass[40];
+	char userpass[40];
 	printf("Enter new entry pass(no spaces):");
-	scanf("%s", &new_pass);
+	scanf("%s", &userpass);
+	encryptMasterPass();
 	fseek(fp, 0, SEEK_SET);
-	fprintf(fp, "%s", new_pass);
+	fprintf(fp, "%s", userpass);
 	//not keeping the record of old passwords, replacing stuff
 	fclose(fp);
 }
@@ -237,14 +243,16 @@ void entry_pass_find(){
 	char pass[40];
 	fp=fopen("en_pass.txt", "r");
 	fscanf(fp, "%s\n", pass);
+	decryptMasteryPass();
 	strcpy(entrypass, pass);
 	fclose(fp);
 }
 void write_pass_to_file(){
 	FILE *fp;
-	char temp[40]="Ninik";
+	strcpy(userpass, "Ninik");
+	encryptMasterPass();
 	fp=fopen("en_pass.txt", "w");
-	fprintf(fp, "%s\n", temp);
+	fprintf(fp, "%s\n", entrypass);
 	printf("\nChanging password success! Returning in 2 seconds...");
 	system("ping 127.0.0.1 -n 3 >nul");
 	fclose(fp);
@@ -317,4 +325,16 @@ void randomPassGenerate(){
 	else
 		goto newpass;
 	fflush(stdin);
+}
+void encryptMasterPass(){
+	int i;
+	for(i=0; i<strlen(userpass); i++){
+		entrypass[i]=userpass[i]+3;
+	}
+}
+void decryptMasterPass(){
+	int i;
+	for(i=0; i<strlen(entrypass); i++){
+		userpass[i]=entrypass[i]-3;
+	}
 }

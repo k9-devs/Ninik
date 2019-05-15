@@ -16,3 +16,4 @@
 - Add help option to the main menu.
 - Add a tutorial video
 - Add 'How to build the exe' to the readme
+- Add to readme: Default pass: Ninik
