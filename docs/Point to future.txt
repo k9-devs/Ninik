@@ -18,3 +18,4 @@
 - Add 'How to build the exe' to the readme
 - Add to readme: Default pass: Ninik
 - Add to readme: How to set up the default master pass: To run the function once...
+- Adding warning to readme for no responsibility 
