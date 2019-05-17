@@ -25,8 +25,8 @@
 * Master Password can be changed once there is a successful entry in the main menu.
 
 ## About encryption/decryption algos
-* Plain .txt files stores the entry name along with passwords in manipulated form. Manipulation algorithm can be changed.
-* Keep in mind, all the passwords must be manipulated with the same algo in order to retrieve them again.
+* Plain .txt files store the entry name along with passwords in encrypted form. Encryption algorithm can be changed as well (Recommended).
+* All the passwords must be encrypted with the same algo in order to retrieve them again.
 
 ## How To Contribute
 Open a pull request with proper comments. For any discussion or query, open an issue. You can also message me through Twitter to get in touch twitter.com/mbhups
