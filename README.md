@@ -29,4 +29,4 @@
 * Keep in mind, all the passwords must be manipulated with the same algo in order to retrieve them again.
 
 ## How To Contribute
-Open a pull request. For any discussion or query, open an issue. You can also message me through Twitter to get in touch twitter.com/mbhups
+Open a pull request with proper comments. For any discussion or query, open an issue. You can also message me through Twitter to get in touch twitter.com/mbhups
