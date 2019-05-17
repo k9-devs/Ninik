@@ -1,10 +1,3 @@
-/*
-A simple password manager written in C language, a project under #100DaysOfCode
-and #301DaysOfCode challenge 
-
-twitter.com/mbhups, github.com/mbhup
-*/
-
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
