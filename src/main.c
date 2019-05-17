@@ -25,7 +25,7 @@ char userpass[40]; //holds the original non-encrypted value
 int main(){
 	//system("@echo off");
     //system("start /max");
-	write_pass_to_file();
+	//write_pass_to_file();
     entry_pass_find();
 	validator();
 }
@@ -205,7 +205,7 @@ void validator(){
 	char temp[50];
 	loop:
 	system("cls");
-	printf("Entry master password:\n\n> ");
+	printf("Master password:\n\n> ");
 	scanf("%s", &temp);
 	if(strcmp(userpass, temp)!=0){
 		printf("Wrong password! Returning to the first screen in 2 seconds...\n");
