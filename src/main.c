@@ -9,6 +9,7 @@ void newentry();
 void browse_previous();
 void delete_en();
 void validator();
+//entry pass means Master pass here. Not to be confused with Entries present within the pass.txt file
 void change_entry_pass();
 void entry_pass_find();
 void write_pass_to_file();
@@ -34,14 +35,14 @@ void mainscr(){
 	char str_batch_commands[50];
 	char cont;
 	//system("start /max");
-	system("title Ninik Password Manager v1.0");
+	system("title Ninik Password Manager v1.0 (Beta)");
 	do{
 		mn:
 		system("cls");
 		system("COLOR 02");
 		printf("Ninik Password Manager v1.0\n");
 		printf("\n1. Make a New Entry\n2. Browse Previous Entry");
-		printf("\n3: Delete Entry\n4: Change Entry Pass\n");
+		printf("\n3: Delete Entry\n4: Change Master Password\n");
 		printf("5: Help\n6: Contribute\n");
 		printf("7: Exit\n\n> ");
 		scanf("%d", &ch);
@@ -222,7 +223,7 @@ void change_entry_pass(){
 	system("cls");
 	FILE *fp;
 	fp=fopen("en_pass.txt", "w");
-	printf("New Entry Pass(no spaces):\n\n> ");
+	printf("New Master Pass(no spaces):\n\n> ");
 	scanf("%s", &userpass);
 	encryptMasterPass();
 	fseek(fp, 0, SEEK_SET);
