@@ -61,7 +61,8 @@ void mainscr(){
 			case 6: system("cls");
 					system("explorer https://github.com/k9-devs/Ninik");
 					break;
-			case 7: printf("Thank You For Using Ninik Password Manager. Exiting in 2 Seconds...");
+			case 7: system("cls");
+					printf("Thank You For Using Ninik Password Manager. Exiting in 2 Seconds...");
 					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
 					system(str_batch_commands);
 					exit(0);
@@ -107,7 +108,7 @@ void newentry(){
 	//puts(title);
 	fflush(stdin);
 	printf("\n\nTitle: %s\tPass:%s", title, pass);
-	printf("\nPress y/Y to confirm entry addition, n/N to cancel\n\n> ");
+	printf("\n\nPress y/Y to Confirm, n/N to Cancel\n\n> ");
 	scanf("%c", &confirm);
 	if(confirm=='n'||confirm=='N'){
 		goto start_ag;
@@ -186,7 +187,7 @@ void delete_en(){
 	fp1=fopen("pass.txt", "r");
 	fp2=fopen("passtemp.txt", "w");
 	system("cls");
-	printf("\aWarning! These changes are irreversible, Proceed with Caution!\n");
+	printf("\aWarning! These changes are Irreversible, Proceed with Caution!\n");
 	printf("Title:\n\n> ");
 	scanf("%s", &title2);
 	while(fscanf(fp1, "%s\t%s", title, pass)!=EOF){
