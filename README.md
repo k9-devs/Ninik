@@ -35,7 +35,7 @@
       <br>TitleName Pass(\n)
       <br>TitleName Pass(\n)
       <br>EOF
-  See here https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/pass_txt.PNG
+  <br> See here https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/pass_txt.PNG
 * Algorithm encrypting and decrypting any password is pretty simple right now. One can implement its own algo to change the storage form of passwords.
 
 ## How To Contribute
