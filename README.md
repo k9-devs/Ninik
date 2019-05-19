@@ -18,7 +18,7 @@
 * C Language
 * Batch scripting language
 
-## How To Set Up Everything
+## Setting up stuff
 * The main.c file is being developed in Dev-C++ using compilers TDM-GCC and MinGW.
 <br>Here are some of the links: Dev-C++ (https://sourceforge.net/projects/orwelldevcpp/) , TDM-GCC (http://tdm-gcc.tdragon.net/) and MinGW (http://www.mingw.org/).
 * The file en_pass.txt is mandatory to have and needs to be in the same directory as of main.c
