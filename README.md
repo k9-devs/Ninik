@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/main_UI_update.PNG" alt="Screenshot">
+  <img src="https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/uiUpdate3.PNG" alt="Screenshot">
 </p>
   
 ## Technologies used
@@ -35,6 +35,7 @@
       <br>TitleName Pass(\n)
       <br>TitleName Pass(\n)
       <br>EOF
+  <br> See here https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/pass_txt.PNG
 * Algorithm encrypting and decrypting any password is pretty simple right now. One can implement its own algo to change the storage form of passwords.
 
 ## How To Contribute
