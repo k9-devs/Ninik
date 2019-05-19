@@ -1,0 +1,24 @@
+;Auto-generated Diamond Directive File. Can be deleted without harm.
+.Set CabinetNameTemplate=F:\Github\Ninik\releases\v1.0(beta)\~Ninik v1.0(beta).CAB
+.Set CompressionType=LZX
+.Set CompressionLevel=7
+.Set InfFileName=C:\Program Files\Ninik\~Ninik_LAYOUT.INF
+.Set RptFileName=F:\Github\Ninik\releases\v1.0(beta)\~Ninik v1.0(beta).RPT
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=0
+.Set InfCabinetLineFormat=*cab#*=Application Source Media,*cabfile*,0
+.Set Compress=on
+.Set CompressionMemory=21
+.Set DiskDirectoryTemplate=
+.Set Cabinet=ON
+.Set MaxCabinetSize=999999999
+.Set InfDiskHeader=
+.Set InfDiskLineFormat=
+.Set InfCabinetHeader=[SourceDisksNames]
+.Set InfFileHeader=
+.Set InfFileHeader1=[SourceDisksFiles]
+.Set InfFileLineFormat=*file*=*cab#*,,*size*,*csum*
+F:\Github\Ninik\releases\v1.0(beta)\en_pass.txt
+F:\Github\Ninik\releases\v1.0(beta)\License.txt
+F:\Github\Ninik\releases\v1.0(beta)\Ninik v1.0(beta).exe
+F:\Github\Ninik\releases\v1.0(beta)\pass.txt
