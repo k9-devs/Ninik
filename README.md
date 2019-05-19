@@ -12,6 +12,8 @@
   <img src="https://raw.githubusercontent.com/k9-devs/Ninik/master/graphics/uiUpdate3.PNG" alt="Screenshot">
 </p>
   
+## Download the Latest Release here: https://github.com/k9-devs/Ninik/releases
+
 ## Technologies used
 * C Language
 * Batch scripting language
