@@ -10,7 +10,7 @@ void browse_previous();
 void delete_en();
 void validator();
 void change_entry_pass();
-void entry_pass_find(); //normal writing is not providing the compatible format
+void entry_pass_find();
 void write_pass_to_file();
 void encryption_algo();
 void decryption_algo();
@@ -40,8 +40,8 @@ void mainscr(){
 		system("cls");
 		system("COLOR 02");
 		printf("Ninik Password Manager v1.0\n");
-		printf("\n1. Make a new entry\n2. Browse previous entries");
-		printf("\n3: Delete entry\n4: Change entry pass\n");
+		printf("\n1. Make a New Entry\n2. Browse Previous Entry");
+		printf("\n3: Delete Entry\n4: Change Entry Pass\n");
 		printf("5: Help\n6: Contribute\n");
 		printf("7: Exit\n\n> ");
 		scanf("%d", &ch);
@@ -61,13 +61,13 @@ void mainscr(){
 			case 6: system("cls");
 					system("explorer https://github.com/k9-devs/Ninik");
 					break;
-			case 7: printf("Thanks For Using Ninik Password Manager, Exiting in 2 Seconds...");
+			case 7: printf("Thank You For Using Ninik Password Manager. Exiting in 2 Seconds...");
 					strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
 					system(str_batch_commands);
 					exit(0);
 					//strcpy(str_batch_commands, "pause >nul");
 					//system(str_batch_commands);
-			default: printf("\a\nInvalid choice! Returning to main menu in 2 seconds..\n\n");
+			default: printf("\a\nInvalid choice! Returning To Main Menu in 2 Seconds..\n\n");
 					 strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
 					 system(str_batch_commands);
 					 goto mn;
@@ -88,14 +88,15 @@ void newentry(){
 	start_ag:
 	system("cls");
 	fflush(stdin);
-	printf("Enter a title for the pass (no spaces):\n\n> ");
+	printf("Title (no spaces):\n\n> ");
 	scanf("%s", &title);
 	//printf("%s", title);
 	fflush(stdin);
-	printf("\nFor password, select one:\n1: Insert password\n2: Generate a new\n\n> ");
+	printf("\nSelect One:\n1: Insert Password\n2: Auto-Generate a New\n\n> ");
 	scanf("%d", &ch);
 	if(ch==1){
-		printf("Enter the password:\n\n> ");
+		system("cls");
+		printf("Password:\n\n> ");
 		scanf("%s", &pass);
 		fflush(stdin);
 	}
@@ -116,7 +117,7 @@ void newentry(){
 	fp=fopen("pass.txt", "a"); //append mode
 	encryption_algo();
 	fprintf(fp, "%s\t%s\n", title, pass);
-	printf("\nDone writing!");
+	printf("\nWriting Success!\n");
 	fclose(fp);
 }
 void browse_previous(){
@@ -154,7 +155,7 @@ void browse_previous(){
 	char usr_ip[20];
 	char title[20];
 	system("cls");
-	printf("Enter the title:\n\n> ");
+	printf("Title:\n\n> ");
 	scanf("%s", &usr_ip);
 	fp=fopen("pass.txt", "r");
 	fseek(fp, 0, SEEK_SET);
@@ -162,14 +163,14 @@ void browse_previous(){
 		if(strcmp(title, usr_ip)==0){
 			unsucflg=1;
 			decryption_algo();
-			printf("Pass entry for %s is: %s\n", title, pass);
+			printf("Password for Entry '%s' is: %s\n", title, pass);
 		}
 		//else{
 		//	printf("unsuccessful\n");
 		//}
 	}
 	if(unsucflg==0){
-		printf("Entry not found! Returning to the main menu in 2 seconds...");
+		printf("Entry Not Found! Returning To Main Menu in 2 Seconds...");
 		//strcpy(str_batch_commands, "ping 127.0.0.1 -n 3 > nul");
 		system("ping 127.0.0.1 -n 3 > nul");
 	}
@@ -185,8 +186,8 @@ void delete_en(){
 	fp1=fopen("pass.txt", "r");
 	fp2=fopen("passtemp.txt", "w");
 	system("cls");
-	printf("\aWarning! These changes are irreversible, proceed with caution!\n");
-	printf("Enter the title:\n\n> ");
+	printf("\aWarning! These changes are irreversible, Proceed with Caution!\n");
+	printf("Title:\n\n> ");
 	scanf("%s", &title2);
 	while(fscanf(fp1, "%s\t%s", title, pass)!=EOF){
     	if(strcmp(title, title2)!=0){
@@ -196,9 +197,9 @@ void delete_en(){
 	fclose(fp1);
 	fclose(fp2);
 	remove("pass.txt");
-	//might show error if the above and below lines are switched, not testsed yet
+	//might show error if the above and below lines are switched, not tested yet
 	rename("passtemp.txt", "pass.txt");
-	printf("Entry deletion successful!\n");
+	printf("Deletion Successful!\n");
 }
 void validator(){
 	//validator code
@@ -208,7 +209,7 @@ void validator(){
 	printf("Master password:\n\n> ");
 	scanf("%s", &temp);
 	if(strcmp(userpass, temp)!=0){
-		printf("Wrong password! Returning to the first screen in 2 seconds...\n");
+		printf("Wrong password! Returning To First Screen in 2 Seconds...\n");
 		system("ping 127.0.0.1 -n 3 > nul");
 		goto loop;
 	}
@@ -220,7 +221,7 @@ void change_entry_pass(){
 	system("cls");
 	FILE *fp;
 	fp=fopen("en_pass.txt", "w");
-	printf("Enter new entry pass(no spaces):\n\n> ");
+	printf("New Entry Pass(no spaces):\n\n> ");
 	scanf("%s", &userpass);
 	encryptMasterPass();
 	fseek(fp, 0, SEEK_SET);
@@ -243,7 +244,7 @@ void write_pass_to_file(){
 	encryptMasterPass();
 	fp=fopen("en_pass.txt", "w");
 	fprintf(fp, "%s\n", entrypass);
-	printf("\nChanging password success! Returning in 2 seconds...");
+	printf("\nPassword Change Success! Returning in 2 Seconds...");
 	system("ping 127.0.0.1 -n 3 >nul");
 	fclose(fp);
 }
@@ -304,7 +305,7 @@ void randomPassGenerate(){
 	strcat(finalGeneratedPass, str2);
 	strcat(finalGeneratedPass, str3);
 	puts(finalGeneratedPass);
-	printf("\nCopy this password? (y/Y)...\n\n> ");
+	printf("\nProceed With This Password? (y/Y)...\n\n> ");
 	scanf("%c", &ch);
 	if(ch=='y'||ch=='Y'){
 		strcpy(pass, finalGeneratedPass);
