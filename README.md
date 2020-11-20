@@ -41,4 +41,4 @@
 * Algorithm encrypting and decrypting any password is pretty simple right now. One can implement its own algo to change the storage form of passwords.
 
 ## How To Contribute
-Open a pull request with proper comments. For any discussion or query, open an issue. You can also message me through Twitter to get in touch twitter.com/mbhups
+Open a pull request with proper comments. For any discussion or query, open an issue.
